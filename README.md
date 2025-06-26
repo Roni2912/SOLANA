@@ -2,8 +2,6 @@
 
 A modern, full-featured React application for creating, minting, and managing SPL tokens on the Solana blockchain. Built with TypeScript, Tailwind CSS, and modern React patterns for professional-grade blockchain development.
 
-![SolanaTokenHub Demo](https://via.placeholder.com/800x400/1a202c/ffffff?text=SolanaTokenHub+Demo)
-
 ## 🌟 Key Features
 
 ### 🔗 Wallet Integration
@@ -34,8 +32,8 @@ A modern, full-featured React application for creating, minting, and managing SP
 
 ```bash
 # Clone and install
-git clone https://github.com/yourusername/solana-token-hub.git
-cd solana-token-hub
+git clone https://github.com/Roni2912/solana-token-hub.git
+cd SOLANA
 npm install
 
 # Start development server
@@ -189,23 +187,6 @@ npm run preview      # Preview production build
 npm run lint         # Run ESLint
 npm run typecheck    # Run TypeScript checks
 ```
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Connect your GitHub repository to Vercel
-2. Configure build settings:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-3. Deploy automatically on every push
-
-### Netlify
-
-1. Connect repository to Netlify
-2. Set build command: `npm run build`
-3. Set publish directory: `dist`
-4. Deploy
 
 ## Environment Setup
 
