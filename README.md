@@ -34,8 +34,8 @@ A modern, full-featured React application for creating, minting, and managing SP
 
 ```bash
 # Clone and install
-git clone https://github.com/yourusername/solana-token-hub.git
-cd solana-token-hub
+git clone https://github.com/Roni2912/solana-token-hub.git
+cd SOLANA
 npm install
 
 # Start development server
