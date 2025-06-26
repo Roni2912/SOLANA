@@ -1,10 +1,6 @@
 import { useCallback } from 'react';
 import { PublicKey, LAMPORTS_PER_SOL, SystemProgram, Transaction, Keypair } from '@solana/web3.js';
 import {
-  createMint,
-  getOrCreateAssociatedTokenAccount,
-  mintTo,
-  transfer,
   createInitializeMintInstruction,
   TOKEN_PROGRAM_ID,
   MINT_SIZE,
@@ -12,8 +8,6 @@ import {
   ASSOCIATED_TOKEN_PROGRAM_ID,
   createAssociatedTokenAccountInstruction,
   getAssociatedTokenAddress,
-  ACCOUNT_SIZE,
-  createInitializeAccountInstruction,
   createMintToInstruction,
   createTransferInstruction
 } from '@solana/spl-token';
@@ -43,7 +37,6 @@ export const useTokenOperations = () => {
 
       // Create complete token in a single transaction (mint + ATA + initial supply)
       let mint;
-      let associatedTokenAccount;
       
       // Generate mint keypair
       const mintKeypair = Keypair.generate();
@@ -57,7 +50,6 @@ export const useTokenOperations = () => {
         TOKEN_PROGRAM_ID,
         ASSOCIATED_TOKEN_PROGRAM_ID
       );
-      associatedTokenAccount = { address: associatedTokenAddress };
       
       // Calculate rent exemption for mint
       const mintLamports = await getMinimumBalanceForRentExemptMint(connection);
