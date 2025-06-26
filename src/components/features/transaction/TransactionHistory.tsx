@@ -104,9 +104,18 @@ export const TransactionHistory: React.FC = () => {
                 <div className="flex items-center justify-between text-xs text-gray-500">
                   <div className="flex items-center gap-2">
                     <span>Signature:</span>
-                    <span className="font-mono">{tx.signature.slice(0, 16)}...</span>
+                    <span className="font-mono">{(() => {
+                      if (tx.signature && typeof tx.signature === 'string') {
+                        try {
+                          return tx.signature.slice(0, 16);
+                        } catch (error) {
+                          return 'Error';
+                        }
+                      }
+                      return 'N/A';
+                    })()}...</span>
                     <button
-                      onClick={() => navigator.clipboard.writeText(tx.signature)}
+                      onClick={() => tx.signature && navigator.clipboard.writeText(tx.signature)}
                       className="text-gray-400 hover:text-gray-600"
                     >
                       <Copy className="w-3 h-3" />
@@ -119,7 +128,16 @@ export const TransactionHistory: React.FC = () => {
                 
                 {tx.recipient && (
                   <div className="mt-2 text-xs text-gray-500">
-                    <span>To: {tx.recipient.slice(0, 8)}...{tx.recipient.slice(-8)}</span>
+                    <span>To: {(() => {
+                      if (tx.recipient && typeof tx.recipient === 'string') {
+                        try {
+                          return `${tx.recipient.slice(0, 8)}...${tx.recipient.slice(-8)}`;
+                        } catch (error) {
+                          return 'Error';
+                        }
+                      }
+                      return 'N/A';
+                    })()}</span>
                   </div>
                 )}
               </div>

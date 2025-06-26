@@ -32,6 +32,13 @@ export const TokenCreator: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Check wallet connection first
+    if (!state.wallet?.publicKey || !state.wallet.connected) {
+      setErrors({ general: 'Please connect your wallet first' });
+      return;
+    }
+    
     if (!validateForm()) return;
     
     await createToken(formData);
@@ -130,15 +137,24 @@ export const TokenCreator: React.FC = () => {
           </div>
         </div>
 
+        {errors.general && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+            <div className="flex items-center gap-3">
+              <AlertCircle className="w-5 h-5 text-red-500" />
+              <p className="text-sm font-medium text-red-800">{errors.general}</p>
+            </div>
+          </div>
+        )}
+
         <Button
           type="submit"
           size="lg"
           loading={state.loading}
-          disabled={!state.wallet}
+          disabled={!state.wallet?.connected}
           icon={Plus}
           className="w-full"
         >
-          Create Token
+          {!state.wallet?.connected ? 'Connect Wallet First' : 'Create Token'}
         </Button>
       </form>
     </Card>

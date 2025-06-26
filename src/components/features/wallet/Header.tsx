@@ -46,7 +46,17 @@ export const Header: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div className="hidden sm:block text-right">
                   <p className="text-sm font-semibold text-slate-800">
-                    {state.wallet.publicKey?.toString().slice(0, 4)}...{state.wallet.publicKey?.toString().slice(-4)}
+                    {(() => {
+                      if (state.wallet?.publicKey) {
+                        try {
+                          const pkString = state.wallet.publicKey.toString();
+                          return `${pkString.slice(0, 4)}...${pkString.slice(-4)}`;
+                        } catch (error) {
+                          return 'Error';
+                        }
+                      }
+                      return 'Connecting...';
+                    })()}
                   </p>
                   <p className="text-xs text-slate-600 font-medium">{state.balance.toFixed(4)} SOL</p>
                 </div>

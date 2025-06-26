@@ -19,11 +19,20 @@ export const useWalletOperations = () => {
       }
 
       const response = await window.solana.connect();
+      
+      // Create a properly formatted wallet adapter for SPL Token compatibility
       const walletAdapter: WalletAdapter = {
         publicKey: response.publicKey,
         connected: true,
         connecting: false,
-        disconnect: window.solana.disconnect,
+        disconnect: async () => {
+          await window.solana.disconnect();
+          localStorage.removeItem('walletConnected');
+          dispatch({ type: 'SET_WALLET', payload: null });
+          dispatch({ type: 'SET_BALANCE', payload: 0 });
+          dispatch({ type: 'SET_TOKENS', payload: [] });
+          dispatch({ type: 'SET_TRANSACTIONS', payload: [] });
+        },
         connect: window.solana.connect,
         signTransaction: window.solana.signTransaction,
         signAllTransactions: window.solana.signAllTransactions
@@ -129,7 +138,10 @@ export const useWalletOperations = () => {
   }, [state.wallet, connection, dispatch]);
 
   const requestAirdrop = useCallback(async () => {
-    if (!state.wallet?.publicKey) return;
+    if (!state.wallet?.publicKey || !state.wallet.connected) {
+      dispatch({ type: 'SET_ERROR', payload: 'Please connect your wallet first' });
+      return;
+    }
 
     try {
       dispatch({ type: 'SET_LOADING', payload: true });

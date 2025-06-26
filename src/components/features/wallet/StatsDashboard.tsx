@@ -112,7 +112,22 @@ export const StatsDashboard: React.FC = () => {
             </Button>
             <Button
               variant="secondary"
-              onClick={() => window.open(`https://explorer.solana.com/address/${state.wallet?.publicKey?.toString()}?cluster=devnet`, '_blank')}
+              onClick={() => {
+                console.log('StatsDashboard: Explorer button clicked');
+                console.log('StatsDashboard: wallet:', state.wallet);
+                console.log('StatsDashboard: publicKey:', state.wallet?.publicKey);
+                if (state.wallet?.publicKey) {
+                  try {
+                    const address = state.wallet.publicKey.toString();
+                    console.log('StatsDashboard: address string:', address);
+                    window.open(`https://explorer.solana.com/address/${address}?cluster=devnet`, '_blank');
+                  } catch (error) {
+                    console.error('StatsDashboard: Error with explorer link:', error);
+                  }
+                } else {
+                  console.error('StatsDashboard: No wallet connected');
+                }
+              }}
               icon={ExternalLink}
               className="w-full"
             >

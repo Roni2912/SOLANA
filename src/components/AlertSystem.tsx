@@ -26,13 +26,13 @@ export const AlertSystem: React.FC = () => {
   if (!state.error && !state.success) return null;
 
   return (
-    <div className="fixed top-4 right-4 z-50 space-y-2 animate-in slide-in-from-right duration-300">
+    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 space-y-3 animate-slide-in-bottom px-4 w-full max-w-md">
       {state.error && (
         <Alert
           type="error"
           message={state.error}
           onClose={() => dispatch({ type: 'SET_ERROR', payload: '' })}
-          className="max-w-sm shadow-lg"
+          className="w-full shadow-2xl border-2"
         />
       )}
       {state.success && (
@@ -40,7 +40,7 @@ export const AlertSystem: React.FC = () => {
           type="success"
           message={state.success}
           onClose={() => dispatch({ type: 'SET_SUCCESS', payload: '' })}
-          className="max-w-sm shadow-lg"
+          className="w-full shadow-2xl border-2"
         />
       )}
     </div>

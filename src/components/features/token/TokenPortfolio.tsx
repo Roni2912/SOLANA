@@ -66,9 +66,18 @@ export const TokenPortfolio: React.FC = () => {
                   <div>
                     <p className="text-gray-500">Mint Address</p>
                     <div className="flex items-center gap-2">
-                      <p className="font-mono text-gray-900">{token.mint.slice(0, 8)}...</p>
+                      <p className="font-mono text-gray-900">{(() => {
+                        if (token.mint && typeof token.mint === 'string') {
+                          try {
+                            return token.mint.slice(0, 8);
+                          } catch (error) {
+                            return 'Error';
+                          }
+                        }
+                        return 'N/A';
+                      })()}...</p>
                       <button
-                        onClick={() => navigator.clipboard.writeText(token.mint)}
+                        onClick={() => token.mint && navigator.clipboard.writeText(token.mint)}
                         className="text-gray-400 hover:text-gray-600"
                       >
                         <Copy className="w-3 h-3" />

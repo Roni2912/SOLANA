@@ -102,7 +102,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
               publicKey: response.publicKey,
               connected: true,
               connecting: false,
-              disconnect: window.solana.disconnect,
+              disconnect: async () => {
+                await window.solana.disconnect();
+                localStorage.removeItem('walletConnected');
+                dispatch({ type: 'SET_WALLET', payload: null });
+                dispatch({ type: 'SET_BALANCE', payload: 0 });
+                dispatch({ type: 'SET_TOKENS', payload: [] });
+                dispatch({ type: 'SET_TRANSACTIONS', payload: [] });
+              },
               connect: window.solana.connect,
               signTransaction: window.solana.signTransaction,
               signAllTransactions: window.solana.signAllTransactions
