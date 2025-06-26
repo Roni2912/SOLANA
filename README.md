@@ -1,80 +1,59 @@
 # SolanaTokenHub - Professional Token Management Platform
 
-A comprehensive React application for creating, minting, and managing SPL tokens on the Solana blockchain. Built with TypeScript, Tailwind CSS, and modern React patterns.
+A modern, full-featured React application for creating, minting, and managing SPL tokens on the Solana blockchain. Built with TypeScript, Tailwind CSS, and modern React patterns for professional-grade blockchain development.
 
-## ✅ Assignment Requirements Compliance
+![SolanaTokenHub Demo](https://via.placeholder.com/800x400/1a202c/ffffff?text=SolanaTokenHub+Demo)
 
-This application fully implements all requirements from the Frontend Developer Assignment:
-
-### 1. Solana Wallet Integration ✅
-- ✅ **Phantom Wallet Support**: Full integration with connect/disconnect functionality
-- ✅ **Solflare Wallet Support**: Additional wallet option for enhanced compatibility  
-- ✅ **Wallet Authentication**: Secure wallet connection with proper error handling
-- ✅ **Display Wallet Information**: Shows connected wallet address and SOL balance
-- ✅ **Real-time Balance Updates**: Refresh button and automatic balance fetching
-- ✅ **Error Handling**: Comprehensive wallet connection error management
-
-### 2. Smart Contract Interaction ✅
-- ✅ **Token Creation**: Full SPL Token Program integration for creating new tokens
-- ✅ **Mint Tokens**: Increase token supply with user feedback and transaction tracking
-- ✅ **Send Tokens**: Transfer tokens to other Solana addresses with validation
-- ✅ **Transaction Handling**: Real-time feedback with success/failure notifications
-- ✅ **Transaction Details**: Complete transaction history with status tracking
-
-### 3. UI/UX Design ✅
-- ✅ **Modern Responsive Interface**: TradingView-inspired clean design
-- ✅ **Connect Wallet Button**: Clear call-to-action for wallet connection
-- ✅ **Display Wallet Balance**: Prominent SOL balance display with refresh option
-- ✅ **Token Minting UI**: Intuitive interface for all token operations
-- ✅ **Transaction Status**: Loading states, error messages, and success notifications
-- ✅ **Mobile-Friendly**: Fully responsive design for all screen sizes
-
-### 4. Blockchain Data Fetching ✅
-- ✅ **Token Balance Fetching**: Real-time token and SOL balance display
-- ✅ **Transaction History**: Complete transaction log with detailed information
-- ✅ **Persistent Data**: localStorage integration for data persistence across refreshes
-
-### 5. Additional Features ✅
-- ✅ **Code Quality**: Well-structured, modular code with TypeScript
-- ✅ **Performance Optimization**: Fast loading and smooth interactions
-- ✅ **Error Handling**: Comprehensive error management for all edge cases
-
-## Features
-
-### 🚀 Token Management
-- **Create Custom Tokens**: Deploy SPL tokens with custom names, symbols, decimals, and initial supply
-- **Mint Tokens**: Increase token supply with secure minting operations
-- **Transfer Tokens**: Send tokens to any Solana address instantly
-- **Portfolio View**: Track all your token holdings in one place
+## 🌟 Key Features
 
 ### 🔗 Wallet Integration
-- **Phantom & Solflare Support**: Support for both major Solana wallets
-- **Persistent Connection**: Data persists across browser refreshes
-- **Balance Tracking**: Real-time SOL and token balance updates
-- **Transaction History**: Complete history of all blockchain activities
+- **Multi-Wallet Support**: Phantom and Solflare wallet integration
+- **Persistent Sessions**: Wallet state persists across browser refreshes
+- **Real-time Balance**: Live SOL and token balance updates
+- **Secure Connection**: Non-custodial wallet integration
+
+### 🚀 Token Operations
+- **Create Custom Tokens**: Deploy SPL tokens with custom parameters
+- **Mint Additional Supply**: Increase token circulation securely
+- **Transfer Tokens**: Send tokens to any Solana address
+- **Portfolio Management**: Comprehensive token holdings overview
 
 ### 📊 Analytics & Monitoring
-- **Real-time Stats**: Live dashboard with key metrics
-- **Transaction Tracking**: Monitor all blockchain interactions
-- **Success Metrics**: Track transaction success rates
+- **Real-time Dashboard**: Live metrics and key performance indicators
+- **Transaction History**: Complete blockchain activity log
+- **Balance Monitoring**: Automatic SOL and token balance updates
 - **Portfolio Analytics**: Comprehensive token portfolio overview
 
 ### 🎨 User Experience
-- **Modern UI**: Clean, responsive design with Tailwind CSS
-- **Mobile Friendly**: Fully responsive across all devices
-- **Loading States**: Smooth loading indicators and feedback
-- **Error Handling**: Comprehensive error management and user feedback
+- **Modern Design**: Clean, professional interface with Tailwind CSS
+- **Fully Responsive**: Optimized for desktop, tablet, and mobile
+- **Interactive Feedback**: Loading states and real-time notifications
+- **Error Handling**: Comprehensive error management and recovery
 
-## Technology Stack
+## 🚀 Quick Start
+
+```bash
+# Clone and install
+git clone https://github.com/yourusername/solana-token-hub.git
+cd solana-token-hub
+npm install
+
+# Start development server
+npm run dev
+```
+
+Open `http://localhost:5173` and connect your Phantom wallet to get started!
+
+## 🛠 Technology Stack
 
 - **Frontend**: React 18 + TypeScript
 - **Styling**: Tailwind CSS with custom animations
-- **Blockchain**: Solana Web3.js + SPL Token
+- **Blockchain**: Solana Web3.js + SPL Token Program
 - **Build Tool**: Vite
 - **State Management**: React Context + useReducer
 - **Icons**: Lucide React
 
-## Getting Started
+## 📋 Getting Started
 
 ### Prerequisites
 
@@ -271,17 +250,24 @@ The application is configured for Solana Devnet by default. To switch networks:
 - [React Documentation](https://react.dev)
 - [TypeScript Handbook](https://typescriptlang.org)
 
-## License
+## 📄 License
 
-This project is for educational purposes. Use responsibly and ensure proper testing before deploying to mainnet.
+MIT License - feel free to use this project for learning and development.
 
-## Support
+## 🤝 Contributing
 
-For questions and support:
-- Check the troubleshooting section
-- Review Solana documentation
-- Ensure you're using the latest version of dependencies
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## ⭐ Show Your Support
+
+Give a ⭐️ if this project helped you learn Solana development!
 
 ---
 
-Built with ❤️ for the Solana ecosystem
+**Built with ❤️ for the Solana ecosystem**
